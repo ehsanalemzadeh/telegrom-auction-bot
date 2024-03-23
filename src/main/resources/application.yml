@@ -1,0 +1,32 @@
+spring:
+
+  datasource:
+    url: jdbc:h2:file:./data/auctionbot
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    baselineOnMigrate: true
+    validateOnMigrate: true
+    locations: db/migration
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+
+  application:
+    name: TelegramAuctionBotApplication
+
+bot:
+  username: ${BOT_USERNAME:test}
+  token: ${BOT_TOKEN:123}
+  proxy:
+    host: 127.0.0.1
+    port: 2080
+    type: SOCKS5
